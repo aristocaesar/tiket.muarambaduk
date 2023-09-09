@@ -9,6 +9,19 @@ const config: Config = {
   theme: {
     colors: {
       white: '#ffffff',
+      'wild-sand': {
+        '50': '#f7f7f7',
+        '100': '#efefef',
+        '200': '#dcdcdc',
+        '300': '#bdbdbd',
+        '400': '#989898',
+        '500': '#7c7c7c',
+        '600': '#656565',
+        '700': '#525252',
+        '800': '#464646',
+        '900': '#3d3d3d',
+        '950': '#292929',
+      },
       blumine: {
         '50': '#f3f7fc',
         '100': '#e6eff8',
@@ -34,6 +47,11 @@ const config: Config = {
         '800': '#454545',
         '900': '#3d3d3d',
         '950': '#1e1e1e',
+      },
+    },
+    extend: {
+      maxWidth: {
+        'screen-sm': '480px !important',
       },
     },
   },

@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
@@ -16,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body className={poppins.className}>{children}</body>
+      <body className={classNames(poppins.className, "bg-wild-sand-100 my-0 mx-auto min-h-full max-w-screen-sm")}>
+        <main className='my-0 mx-auto min-h-screen max-w-480 overflow-x-hidden bg-white drop-shadow'>
+          {children}
+        </main>
+      </body>
     </html>
   )
 }
