@@ -1,8 +1,8 @@
-import MenuCamping from "@/components/camping/menu";
-import MenuMain from "@/components/menu/menu";
-import TopBar from "@/components/navbar/topBar";
-import MenuNews from "@/components/news/menu";
-import Wrapper from "@/components/wrapper";
+import MenuCamping from "@/app/components/camping/menu";
+import MenuMain from "@/app/components/menu/menu";
+import TopBar from "@/app/components/navbar/topBar";
+import MenuNews from "@/app/components/news/menu";
+import Wrapper from "@/app/components/wrapper";
 import { Metadata } from "next"
 import { getServerSession } from "next-auth"
 

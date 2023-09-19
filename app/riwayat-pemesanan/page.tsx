@@ -1,6 +1,6 @@
-import Wrapper from "@/components/wrapper";
+import Wrapper from "@/app/components/wrapper";
 import { Metadata } from "next"
-import BackFloating from "@/components/backFloating";
+import BackFloating from "@/app/components/backFloating";
 
 export const metadata : Metadata = {
     title : 'Muara Mbaduk Camping Ground - Riwayat Pemesanan'

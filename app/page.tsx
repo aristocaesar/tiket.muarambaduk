@@ -1,6 +1,6 @@
 "use client"
 
-import {GoogleSignButton} from "@/components/auth/authButton";
+import {GoogleSignButton} from "@/app/components/auth/authButton";
 
 export default function Home() {
   return (

@@ -1,6 +1,6 @@
-import Wrapper from "@/components/wrapper";
+import Wrapper from "@/app/components/wrapper";
 import { Metadata } from "next"
-import BackFloating from "@/components/backFloating";
+import BackFloating from "@/app/components/backFloating";
 import Image from "next/image";
 
 export const metadata : Metadata = {
