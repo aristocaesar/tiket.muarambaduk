@@ -1,28 +1,12 @@
 import Link from "next/link";
 import MenuNewsItem from "./menuItem";
+import { News } from "@/app/_types/news";
 
-export default function MenuNews() {
-    
-    const _news = [
-        {
-            title : "Cara seru habiskan akhir tahun, Wisata camping ciamik dibanyuwangi yuk!",
-            href : "cara-seru-habiskan-akhir-tahun-wisata-camping-ciamik-dibanyuwangi-yuk",
-            date : "14 September 2023",
-            image : "/images/muarambaduk-camping.jpeg",
-        },
-        {
-            title : "Camping di Muara Mbaduk bisa jadi",
-            href : "camping-di-muara-mbaduk-bisa-jadi-pilihan-yang-paling-pas-untuk-weekend",
-            date : "10 September 2023",
-            image : "/images/muarambaduk-camping.jpeg",
-        },
-        {
-            title : "Camping di Muara Mbaduk bisa jadi pilihan yang paling pas untuk weekend",
-            href : "camping-di-muara-mbaduk-bisa-jadi-pilihan-yang-paling-pas-untuk-weekend",
-            date : "10 September 2023",
-            image : "/images/muarambaduk-camping.jpeg",
-        },
-    ]
+interface MenuNewsProps {
+    news : News[]
+}
+
+export default function MenuNews({news} : MenuNewsProps) {
     
     return (
         <div className="my-10">
@@ -32,14 +16,14 @@ export default function MenuNews() {
             </div>
             <div className="flex flex-col space-y-5">
                 {
-                    _news.map((news, index) => {
+                    news.map((_news, index) => {
                      return (
                         <MenuNewsItem 
                             key={index}
-                            title={news.title}
-                            href={news.href}
-                            date={news.date}
-                            image={news.image}    
+                            title={_news.title}
+                            href={_news.slug}
+                            date={_news.created_at}
+                            image={_news.thumbnail}    
                         />
                      )   
                     })

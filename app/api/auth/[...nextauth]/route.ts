@@ -20,6 +20,13 @@ const handler = NextAuth({
       return `${baseUrl}/dashboard`;
     },
   },
+  pages: {
+    signIn: '/',
+    signOut: '/',
+    error: '/',
+    newUser: '/',
+    verifyRequest: '/',
+  },
 });
 
 export { handler as GET, handler as POST };
