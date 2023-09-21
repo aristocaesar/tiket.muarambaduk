@@ -2,12 +2,18 @@ import Wrapper from "@/app/components/wrapper";
 import { Metadata } from "next"
 import BackFloating from "@/app/components/backFloating";
 import Image from "next/image";
+import { MUARAMBADUK_API } from "../_config/serverApi";
+import { Page } from "../_types/page";
 
 export const metadata : Metadata = {
     title : 'Muara Mbaduk Camping Ground - Tentang'
 }
 
 export default async function Tentang() {
+
+    const about = await MUARAMBADUK_API.get('pages/about');
+    const aboutItem : Page = about.data;
+
     return (
         <Wrapper>
             <BackFloating href={"/dashboard"} />
@@ -17,11 +23,9 @@ export default async function Tentang() {
                     objectFit:"cover"
                 }} />
             </div>
-            <article className="text-cod-gray-950 space-y-5">
-                <p>Muara Mbaduk - satu lagi pantai yang layak kamu kunjungi ketika berlibur ke Banyuwangi. Lokasinya searah dengan destinasi wisata pantai lain seperti Pulau Merah, Teluk Hijau dan Pantai Sukamade, sehingga bisa dijadikan satu tujuan.</p>
-                <p>Muara Mbaduk - satu lagi pantai yang layak kamu kunjungi ketika berlibur ke Banyuwangi. Lokasinya searah dengan destinasi wisata pantai lain seperti Pulau Merah, Teluk Hijau dan Pantai Sukamade, sehingga bisa dijadikan satu tujuan.</p>
-                <p>Muara Mbaduk - satu lagi pantai yang layak kamu kunjungi ketika berlibur ke Banyuwangi. Lokasinya searah dengan destinasi wisata pantai lain seperti Pulau Merah, Teluk Hijau dan Pantai Sukamade, sehingga bisa dijadikan satu tujuan.</p>
-            </article>
+            <div className="text-cod-gray-950" dangerouslySetInnerHTML={{
+                __html : aboutItem.body
+            }} />
         </Wrapper>
     );
 }
