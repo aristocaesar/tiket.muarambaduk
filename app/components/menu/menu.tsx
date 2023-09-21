@@ -29,7 +29,7 @@ export default function MenuMain() {
         },
         {
             name : "Bantuan",
-            href : '/tentang',
+            href : '/bantuan',
             icon : 'icon-bantuan.png'
         }
     ]
