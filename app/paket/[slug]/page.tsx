@@ -6,6 +6,7 @@ import { Package } from "@/app/_types/packages";
 import Image from "next/image";
 import { Currency } from "@/app/_libs/currency";
 import Link from "next/link";
+import NotFound from "@/app/not-found";
 
 export const metadata : Metadata = {
     title : 'Muara Mbaduk Camping Ground - Riwayat Pemesanan'
@@ -22,6 +23,8 @@ export default async function DetailPaket({searchParams, params} : DetailPaketPr
 
     const packageDetail = await MUARAMBADUK_API.get(`packages/${params.slug}`);
     const packageData : Package = packageDetail.data;
+
+    if(packageData.id == undefined) return NotFound();
 
     return (
         <>

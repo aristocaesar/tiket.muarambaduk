@@ -1,16 +1,40 @@
 import Wrapper from "@/app/components/wrapper";
 import { Metadata } from "next"
-import BackFloating from "@/app/components/backFloating";
+import { MUARAMBADUK_API } from "@/app/_config/serverApi";
+import { News } from "@/app/_types/news";
+import NotFound from "@/app/not-found";
+import TagLine from "@/app/components/news/tagLine";
 
 export const metadata : Metadata = {
     title : 'Muara Mbaduk Camping Ground - Detail Berita'
 }
 
-export default async function DetailBerita() {
+interface DetailNewsProps {
+    searchParams: { [key: string]: string | null | undefined },
+    params : {
+        slug : string;
+    }
+}
+
+export default async function DetailBerita({searchParams, params} : DetailNewsProps) {
+    
+    const newsDetail = await MUARAMBADUK_API.get(`news/${params.slug}`);
+    const newsData : News = newsDetail.data;
+
+    if(newsData.id == undefined) return NotFound();
+    
     return (
-        <Wrapper>
-            <BackFloating href={"/dashboard"} />
-            <h1 className="text-center font-semibold text-cod-gray-950 text-base mt-2 md:mt-3">Detail Berita</h1>
+        <>
+        <TagLine
+            title={newsData.title}
+            thumbnail={newsData.thumbnail}
+            created_at={newsData.created_at}
+        />
+        <Wrapper classname="relative z-10 -mt-5 bg-white rounded-t-3xl text-cod-gray-950">
+            <div dangerouslySetInnerHTML={{
+                __html : newsData.body
+            }} />
         </Wrapper>
+        </>
     );
 }
