@@ -7,3 +7,9 @@ export type Ticket = {
     created_at : string;
     updated_at : string;
 }
+
+export interface TicketResponse {
+    code : number | undefined;
+    status : string | undefined;
+    data : Ticket[]
+}

@@ -12,3 +12,15 @@ export type Package = {
     created_at : string;
     updated_at : string;
 }
+
+export interface PackageResponse {
+    code : number | undefined;
+    status : string | undefined;
+    data : Package[]
+}
+
+export interface PackageDetailResponse {
+    code : number | undefined;
+    status : string | undefined;
+    data : Package | null
+}

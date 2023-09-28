@@ -6,10 +6,10 @@ import classNames from "classnames";
 import { useState } from "react";
 
 interface ItemsTiketProps {
-    items : Ticket[]
+    tickets : Ticket[]
 }
 
-export default function ItemsTiket({items}: ItemsTiketProps) {
+export default function ItemsTiket({tickets}: ItemsTiketProps) {
     const [category, setCategory] = useState("tourist");
 
     return(
@@ -30,7 +30,7 @@ export default function ItemsTiket({items}: ItemsTiketProps) {
         </div>
         <div className="flex flex-col mt-8 text-cod-gray-950 space-y-5">
             {
-                items.map((item, index) => (
+                tickets.map((item, index) => (
                     item.category == category ? (
                     <div key={index}>
                         <h2 className="font-semibold mb-3">{item.title}</h2>

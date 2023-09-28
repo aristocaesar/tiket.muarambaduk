@@ -6,3 +6,9 @@ export type Page = {
     created_at : string;
     updated_at : string;
 }
+
+export interface PageResponse {
+    code : number | undefined;
+    status : string | undefined;
+    data : Page | undefined
+}
